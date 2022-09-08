@@ -15,5 +15,5 @@ def calcular_calorias_en_actividad(peso: float, altura: float, edad: int, valor_
 def consumo_calorias_recomendado_para_adelgazar(peso: float, altura: float, edad: int, valor_genero: int) -> str:
     valor_maximo = ((calcular_calorias_en_reposo(peso, altura, edad, valor_genero) * 0.15) - calcular_calorias_en_reposo(peso, altura, edad, valor_genero)) * -1
     valor_minimo = ((calcular_calorias_en_reposo(peso, altura, edad, valor_genero) * 0.20) - calcular_calorias_en_reposo(peso, altura, edad, valor_genero)) * -1
-    return f"Para adelgazar es recomendado que consumas entre: {round(valor_minimo, 2)} y {round(valor_maximo, 2)} calorías al día."
+    return f"Para adelgazar es recomendado que consumas entre: {round(valor_minimo, 2)} y {round(valor_maximo, 2)} calorías al día"
 
