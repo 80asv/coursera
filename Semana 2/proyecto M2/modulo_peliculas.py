@@ -234,29 +234,29 @@ def reagendar_pelicula(peli:dict, nueva_hora: int, nuevo_dia: str,
     hh_inicio_nueva_peli = (nueva_hora//100) * 60 + nueva_hora % 100
     hh_fin_nueva_peli = hh_inicio_nueva_peli + peli["duracion"]
 
-    resp = True
+    result = True
 
     if (nuevo_dia == p1['dia'] and (hh_inicio_nueva_peli <= hora_pelicula(p1)[1] and hh_fin_nueva_peli >= hora_pelicula(p1)[0])):
-        resp = False
+        result = False
     if (nuevo_dia == p2['dia'] and (hh_inicio_nueva_peli <= hora_pelicula(p2)[1] and hh_fin_nueva_peli >= hora_pelicula(p2)[0])):
-        resp = False
+        result = False
     if (nuevo_dia == p3['dia'] and (hh_inicio_nueva_peli <= hora_pelicula(p3)[1] and hh_fin_nueva_peli >= hora_pelicula(p3)[0])):
-        resp = False
+        result = False
     if (nuevo_dia == p4['dia'] and (hh_inicio_nueva_peli <= hora_pelicula(p4)[1] and hh_fin_nueva_peli >= hora_pelicula(p4)[0])):
-        resp = False
+        result = False
     if (nuevo_dia == p5['dia'] and (hh_inicio_nueva_peli <= hora_pelicula(p5)[1] and hh_fin_nueva_peli >= hora_pelicula(p5)[0])):
-        resp = False
+        result = False
     
     # control horario
     if control_horario:
         if "Documental" in peli["genero"] and hh_inicio_nueva_peli > (22*60):
-            resp = False
+            result = False
         if "Drama" in peli["genero"] and nuevo_dia == "Viernes":
-            resp = False
+            result = False
         if hh_inicio_nueva_peli >= 23*60 or hh_inicio_nueva_peli <= 6*60 and (nuevo_dia != "Sábado" or nuevo_dia != "Domingo"):
-            resp = False
+            result = False
     
-    return resp
+    return result
 
     
 def decidir_invitar(peli: dict, edad_invitado: int, autorizacion_padres: bool)->bool:
